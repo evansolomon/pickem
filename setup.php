@@ -59,10 +59,13 @@ function backfill_games() {
 
 		foreach ( $rows as $row ) {
 			$cols = $row->getElementsByTagName( 'td' );
+			if ( is_null( $cols->item( 0 ) ) )
+				continue;
+
 			$week = $cols->item( 0 )->nodeValue;
 
 			// Turn playoff week names into consistent integers
-			if ( 0 == $week )
+			if ( ! $week )
 				continue;
 			elseif ( 'WildCard' == $week )
 				$week = 18;
@@ -82,7 +85,7 @@ function backfill_games() {
 				$year = $season;
 
 			// Get and sanitize game data
-			$timestamp        = (int) date( "Y-m-d h:i:s", strtotime( $cols->item(2)->nodeValue . ", " . $year ) );
+			$timestamp        = date( "Y-m-d h:i:s", strtotime( $cols->item(2)->nodeValue . ", " . $year ) );
 			$winner           = mysql_real_escape_string( $cols->item(4)->nodeValue );
 			$loser            = mysql_real_escape_string( $cols->item(6)->nodeValue );
 			$points_winner    = (int) $cols->item(7)->nodeValue;
