@@ -39,3 +39,5 @@ function create_database() {
 // Try to actually create the database
 if ( ! create_database() )
 	die( 'Database creation failed' );
+else
+	echo "Database created (or existed already)\n";
