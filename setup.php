@@ -11,8 +11,8 @@ if ( ! file_exists( __DIR__ . '/db.php' ) )
 // Load database config
 include( __DIR__ . '/db.php' );
 
-// Do it!
-call_user_func( function() {
+// Create the database if it doesn't exist yet
+function create_database() {
 	$schema = '
 	CREATE TABLE IF NOT EXISTS `games` (
 	  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -34,4 +34,4 @@ call_user_func( function() {
 	)';
 
 	return mysql_query( $schema );
-} );
+}
