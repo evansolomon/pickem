@@ -35,3 +35,7 @@ function create_database() {
 
 	return mysql_query( $schema );
 }
+
+// Try to actually create the database
+if ( ! create_database() )
+	die( 'Database creation failed' );
