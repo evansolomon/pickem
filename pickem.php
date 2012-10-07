@@ -6,11 +6,13 @@
  * all arguments are integers
  */
 class Team {
+	public $name;
 	public $points;
 	public $yards;
 	public $turnovers;
 
-	function __construct( $points, $yards, $turnovers ) {
+	function __construct( $name, $points, $yards, $turnovers ) {
+		$this->name      = $name;
 		$this->points    = $points;
 		$this->yards     = $yards;
 		$this->turnovers = $turnovers;
