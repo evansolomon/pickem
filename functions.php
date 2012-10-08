@@ -15,6 +15,10 @@ function get_game( $season, $week, $team ) {
 	$sql_result = mysql_query( $sql_query );
 	$game       = mysql_fetch_assoc( $sql_result );
 
+	// Make sure the game exists
+	if ( ! $game )
+		return false;
+
 	// Create team objects
 	$winner = new Team( $game['winner'], $game['points_winner'], $game['yards_winner'], $game['turnovers_winner'] );
 	$loser = 	new Team( $game['loser'],  $game['points_loser'],  $game['yards_loser'],  $game['turnovers_loser']  );
