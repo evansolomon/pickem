@@ -71,32 +71,38 @@ function get_season( $season ) {
 
 // Abstract data about particular games
 
-function get_winner( $game ) {
-	return $game->result->winner;
-}
+class Game_Stat {
+	static function get_winner( $game ) {
+		return $game->result->winner;
+	}
 
-function get_loser( $game ) {
-	return $game->result->loser;
-}
+	static function get_loser( $game ) {
+		return $game->result->loser;
+	}
 
-function is_winner_away( $game ) {
-	return $game->result->away;
-}
+	static function is_winner( $game, $team ) {
+		return $team == get_winner( $game )->name;
+	}
 
-function get_points( $game, $winner = true ) {
-	return get_stat( $game, 'points', $winner );
-}
+	static function is_winner_away( $game ) {
+		return $game->result->away;
+	}
 
-function get_yards( $game, $winner = true ) {
-	return get_stat( $game, 'yards', $winner );
-}
+	static function get_stat( $game, $stat, $winner = true ) {
+		$team = ( $winner ) ? 'winner' : 'loser';
 
-function get_turnovers( $game, $winner = true ) {
-	return get_stat( $game, 'turnovers', $winner );
-}
+		return $game->result->$team->$stat;
+	}
 
-function get_stat( $game, $stat, $winner = true ) {
-	$team = ( $winner ) ? 'winner' : 'loser';
+	static function get_points( $game, $winner = true ) {
+		return self::get_stat( $game, 'points', $winner );
+	}
 
-	return $game->result->$team->$stat;
+	static function get_yards( $game, $winner = true ) {
+		return self::get_stat( $game, 'yards', $winner );
+	}
+
+	static function get_turnovers( $game, $winner = true ) {
+		return self::get_stat( $game, 'turnovers', $winner );
+	}
 }
