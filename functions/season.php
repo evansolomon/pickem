@@ -1,6 +1,6 @@
 <?php
 
-// Abstract data about a team's season-to-data
+// Abstract data about a team's season-to-date
 class Season_Data {
 	static function get_wins( $season, $week, $team ) {
 		$wins = 0;
