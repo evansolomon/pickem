@@ -29,10 +29,10 @@ foreach( get_seasons() as $season ) {
 		foreach ( $week as $game ) {
 
 			// Team names
-			$teams = array(
+			$teams = shuffle( array(
 				Game_Data::get_winner( $game )->team,
 				Game_Data::get_loser( $game )->team,
-			);
+			) );
 
 			// Pass the previous week's value so the prediction doesn't try to use the current week's game
 			$prediction = pickem_model( $game->season, $game->week - 1, $teams );
