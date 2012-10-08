@@ -42,7 +42,7 @@ foreach( get_seasons() as $season ) {
 				continue;
 
 			// Success?
-			if ( Game_Data::get_winner( $game ) == $prediction )
+			if ( Game_Data::get_winner( $game )->team == $prediction )
 				$results['correct']++;
 			else
 				$results['incorrect']++;
