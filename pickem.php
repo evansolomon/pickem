@@ -13,9 +13,9 @@ class Team {
 
 	function __construct( $name, $points, $yards, $turnovers ) {
 		$this->name      = $name;
-		$this->points    = $points;
-		$this->yards     = $yards;
-		$this->turnovers = $turnovers;
+		$this->points    = (int) $points;
+		$this->yards     = (int) $yards;
+		$this->turnovers = (int) $turnovers;
 	}
 }
 
@@ -33,7 +33,7 @@ class Result {
 	function __construct( $winner, $loser, $away ) {
 		$this->winner = $winner;
 		$this->loser  = $loser;
-		$this->away   = $away;
+		$this->away   = (bool) $away;
 	}
 }
 
@@ -51,9 +51,9 @@ class Game {
 	public $result;
 
 	function __construct( $season, $week, $day, $result ) {
-		$this->season = $season;
-		$this->week   = $week;
-		$this->day    = $day;
+		$this->season = (int) $season;
+		$this->week   = (int) $week;
+		$this->day    = (int) $day;
 		$this->result = $result;
 	}
 }
