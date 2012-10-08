@@ -2,7 +2,7 @@
 
 // Abstract data about particular games
 
-class Game_Stat {
+class Game_Data {
 	static function get_winner( $game ) {
 		return $game->result->winner;
 	}
