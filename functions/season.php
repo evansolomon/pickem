@@ -6,6 +6,11 @@ class Season_Data {
 		$wins = 0;
 		for ( $i = 1; $i <= $week; $i++ ) {
 			$game = get_game( $season, $i, $team );
+
+			// Bye week
+			if ( ! $game )
+				continue;
+
 			if ( $team == Game_Data::get_winner( $game )->team )
 				$wins++;
 		}
@@ -17,6 +22,11 @@ class Season_Data {
 		$wins = 0;
 		for ( $i = 1; $i <= $week; $i++ ) {
 			$game = get_game( $season, $i, $team );
+
+			// Bye week
+			if ( ! $game )
+				continue;
+
 			if ( $team == Game_Data::get_winner( $game )->team )
 				$wins++;
 		}
@@ -35,6 +45,11 @@ class Season_Data {
 		$total = 0;
 		for ( $i = 1; $i <= $week; $i++ ) {
 			$game   =  get_game( $season, $i, $team );
+
+			// Bye week
+			if ( ! $game )
+				continue;
+
 			$winner =  Game_Data::is_winner( $game, $team );
 			$total  += Game_Data::get_stat( $game, $stat, $winner );
 		}
