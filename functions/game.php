@@ -12,7 +12,7 @@ class Game_Data {
 	}
 
 	static function is_winner( $game, $team ) {
-		return $team == get_winner( $game )->name;
+		return $team == self::get_winner( $game )->name;
 	}
 
 	static function is_winner_away( $game ) {
