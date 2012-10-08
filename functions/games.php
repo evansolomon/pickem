@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Get a Result object for a game
+ * Get a Game object for a season/week/team combination
  */
 function get_game( $season, $week, $team ) {
 	$season = (int) $season;
@@ -31,7 +31,7 @@ function get_game( $season, $week, $team ) {
 }
 
 /**
- * Get an array of result objects for a week of games
+ * Get an array of Game objects for a week of games
  */
 function get_week( $season, $week ) {
 	$season = (int) $season;
@@ -51,7 +51,7 @@ function get_week( $season, $week ) {
 
 /**
  * Get an array of weeks for a season
- * Each week is an array of Result objects
+ * Each week is an array of Game objects
  */
 function get_season( $season ) {
 	$season = (int) $season;
