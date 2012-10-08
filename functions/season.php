@@ -34,7 +34,7 @@ class Season_Data {
 	static function get_stat( $season, $week, $team, $stat ) {
 		$total = 0;
 		for ( $i = 0; $i < $week; $i++ ) {
-			$game   =  Game_Data::get_game( $season, $week, $team );
+			$game   =  get_game( $season, $week, $team );
 			$winner =  Game_Data::is_winner( $game, $team );
 			$total  += Game_Data::get_stat( $game, $winner );
 		}
