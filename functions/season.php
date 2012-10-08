@@ -6,7 +6,7 @@ class Season_Data {
 		$wins = 0;
 		for ( $i = 1; $i <= $week; $i++ ) {
 			$game = get_game( $season, $i, $team );
-			if ( $team == Game_Data::get_winner( $game )->name )
+			if ( $team == Game_Data::get_winner( $game )->team )
 				$wins++;
 		}
 
@@ -17,7 +17,7 @@ class Season_Data {
 		$wins = 0;
 		for ( $i = 1; $i <= $week; $i++ ) {
 			$game = get_game( $season, $i, $team );
-			if ( $team == Game_Data::get_winner( $game )->name )
+			if ( $team == Game_Data::get_winner( $game )->team )
 				$wins++;
 		}
 
