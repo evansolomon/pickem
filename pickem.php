@@ -53,7 +53,7 @@ class Game {
 	function __construct( $season, $week, $day, $result ) {
 		$this->season = (int) $season;
 		$this->week   = (int) $week;
-		$this->day    = (int) $day;
+		$this->day    = $day;
 		$this->result = $result;
 	}
 }
