@@ -67,3 +67,20 @@ function get_season( $season ) {
 
 	return $weeks;
 }
+
+/**
+ * Get an array of years with season data
+ *
+ * Returns an array of integers
+ * Does not return Game objects
+ */
+function get_seasons() {
+	$sql = "SELECT DISTINCT season FROM games";
+	$result = mysql_query( $sql );
+
+	$years = array();
+	while( $year = mysql_fetch_array( $result ) )
+		$years[] = $year[0];
+
+	return $years;
+}
