@@ -1,2 +1,2 @@
 # Pick 'em
-Predict the outcome of NFL games using historical data
+Try to predict the outcome of NFL games using historical data
