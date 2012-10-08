@@ -19,9 +19,9 @@ function get_game( $season, $week, $team ) {
 	if ( ! $game )
 		return false;
 
-	// Create team objects
-	$winner = new Team( $game['winner'], $game['points_winner'], $game['yards_winner'], $game['turnovers_winner'] );
-	$loser = 	new Team( $game['loser'],  $game['points_loser'],  $game['yards_loser'],  $game['turnovers_loser']  );
+	// Create Participant objects
+	$winner = new Participant( $game['winner'], $game['points_winner'], $game['yards_winner'], $game['turnovers_winner'] );
+	$loser = 	new Participant( $game['loser'],  $game['points_loser'],  $game['yards_loser'],  $game['turnovers_loser']  );
 
 	// Create Result object
 	$result = new Result( $winner, $loser, $game['away_win'] );

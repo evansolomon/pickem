@@ -5,7 +5,7 @@
  *
  * all arguments are integers
  */
-class Team {
+class Participant {
 	public $name;
 	public $points;
 	public $yards;
@@ -22,7 +22,7 @@ class Team {
 /**
  * Representes the result of a game
  *
- * $winner and $loser and instances of Team objects
+ * $winner and $loser and instances of Participant objects
  * $away is boolean
  */
 class Result {
